@@ -1,7 +1,7 @@
 import React from 'react'
 import { HelmetProvider } from 'react-helmet-async';
 
-import { About, Footer, Header, Skills, Testimonial, Work, Blog } from './container';
+import { About, Footer, Header, Skills, Work, Blog } from './container';
 import { Navbar } from './components'
 import SEO from './components/SEO/SEO';
 import './App.scss'

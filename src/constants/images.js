@@ -39,9 +39,7 @@ import LLM from '../assets/LLM.jpg';
 import Mat from '../assets/Mat.png';
 import C from '../assets/C++.jpg';
 
-
-
-export default {
+const images = {
   email,
   mobile,
   api,
@@ -79,5 +77,6 @@ export default {
   Mat,
   java,
   C,
-
 };
+
+export default images;
