@@ -162,11 +162,19 @@
       border-radius: 50%;
       background-color: #cbcbcb;
       margin: 0.5rem;
+      border: none;
+      cursor: pointer;
+      padding: 0;
   
       transition: background-color 0.2s ease-in-out;
   
       &:hover {
         background-color: var(--secondary-color);
+      }
+
+      &:focus {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 2px;
       }
   
       @media screen and (min-width: 2000px) {
