@@ -1,5 +1,4 @@
 [build]
-  base = "frontend_react"
   publish = "build"
   command = "npx update-browserslist-db@latest && npm ci && npm run build"
 
