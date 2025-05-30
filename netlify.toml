@@ -1,7 +1,7 @@
 [build]
   base = "frontend_react"
   publish = "frontend_react/build"
-  command = "npm ci && npm run build"
+  command = "npx update-browserslist-db@latest && npm ci && npm run build"
 
 [build.environment]
   NODE_VERSION = "20.14.0"
