@@ -3,9 +3,9 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../client';
 import { SEO } from '../../components';
 import './Work.scss';
+import data from '../../constants/data';
 
 const Work = () => {
   const [works, setWorks] = useState([]);
@@ -14,12 +14,8 @@ const Work = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
-
-    client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-    });
+    setWorks(data.works);
+    setFilterWork(data.works);
   }, []);
 
   const handleWorkFilter = (item) => {
@@ -39,17 +35,17 @@ const Work = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         section="work"
         title="Varun Vaidhiya - Projects Portfolio | ML, Robotics, Software & Open-Source"
         description="Explore Varun Vaidhiya's comprehensive portfolio featuring projects in Machine Learning, Robotics, Embedded Systems, Software Applications, Research Publications, and Open-Source Contributions."
         keywords="Varun Vaidhiya projects, portfolio, machine learning projects, robotics projects, embedded systems, software applications, research publications, open source contributions, AI projects, certifications"
       />
-      
-      <h2 className="head-text">My <span>Projects, Certifications, Publications and Open-Source Contributions </span> List</h2>
+
+      <h2 className="head-text">My <span>Projects</span></h2>
 
       <div className="app__work-filter">
-        {['Robotics', 'Embedded', 'Software Application', 'AI/ML', 'Courses/Certification', 'Publications', 'Open-Source'].map((item, index) => (
+        {['All', 'Robotics', 'AI/ML', 'C++', 'Python'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -70,7 +66,7 @@ const Work = () => {
             <div
               className="app__work-img app__flex"
             >
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+              <img src={work.imgUrl} alt={work.name} />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
@@ -106,7 +102,7 @@ const Work = () => {
               <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
 
               <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p> 
+                <p className="p-text">{work.tags[0]}</p>
               </div>
             </div>
           </div>
